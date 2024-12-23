@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: rgb(95,172,207);
+            background: -moz-linear-gradient(90deg, rgba(95,172,207,1) 0%, rgba(137,29,171,1) 99%);
+            background: -webkit-linear-gradient(90deg, rgba(95,172,207,1) 0%, rgba(137,29,171,1) 99%);
+            background: linear-gradient(90deg, rgba(95,172,207,1) 0%, rgba(137,29,171,1) 99%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5faccf",endColorstr="#891dab",GradientType=1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #949292;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .form-box {
+            border: 1px solid #000000;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            background-color: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-box input, .form-box select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #000000 !important;
+            border-radius: 4px;
+        }
+
+        .form-box input[type="submit"] {
+            width: auto;
+            background-color: #b91313;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+
+        .form-box input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Property List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Property ID</th>
+                <th>Property Name</th>
+                <th>Description</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th>Owner Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for property in all_property %}
+            <tr>
+                <td>{{ property.property_id }}</td>
+                <td>{{ property.property_name }}</td>
+                <td>{{ property.description }}</td>
+                <td>{{ property.city }}</td>
+                <td>{{ property.address }}</td>
+                <td>{{ property.contact_number }}</td>
+                <td>{{ property.email }}</td>
+                <td>{{ property.owner_name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

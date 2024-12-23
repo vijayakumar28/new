@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* General body styling for black background */
+  body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Styling the home section */
+  #home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    margin-top: 60px; /* Added margin-top to avoid text being covered by the navbar */
+  }
+
+  .home-content {
+    flex: 1;
+    padding-right: 2rem;
+  }
+
+  .home-content h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ba0000;
+  }
+
+  .home-content span {
+    font-size: 2.5rem;
+    font-weight: 550;
+    color: #ba0000;
+  }
+
+  .home-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: white;
+  }
+
+  .home-content p {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    line-height: 1.6;
+    color: white;
+  }
+
+  .home-btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background-color: #ba0000;
+    box-shadow: 0 4px 8px rgba(186, 0, 0, 0.5);
+    font-size: 1.6rem;
+    color: white;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid transparent;
+  }
+
+  .home-btn:hover {
+    color: #ba0000;
+    background-color: white;
+    border: 2px solid #ba0000;
+  }
+
+  .home-img {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+  }
+
+  .home-img img {
+    width: 100%;
+    max-width: 500px;
+    object-fit: contain;
+  }
+
+  .home-img::before {
+    content: 'Fitness';
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    transform: translate(-50%);
+    font-size: 10rem;
+    line-height: 10rem;
+    color: #ba0000;
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+    background-color: #000000;
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+  }
+
+  .card {
+    background-color: #000000;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 350px;
+    width: 100%; /* Ensures the card takes up full width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    position: relative;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Black with blur effect */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .card-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ba0000;
+  }
+
+  /* Styling for the home-mid section */
+  .home-mid {
+    background-color: #000000; /* Light gray background for contrast */
+    text-align: center; /* Center-align text */
+    padding: 3rem 2rem; /* Add padding around the content */
+    margin-top: 2rem; /* Space above the section */
+  }
+
+  .home-mid h1 {
+    font-size: 3rem; /* Large font size for the heading */
+    color: #ba0000; /* Red color for the heading */
+    font-weight: 700; /* Bold heading */
+    margin-bottom: 1rem; /* Space below the heading */
+  }
+
+  .home-mid p {
+    font-size: 1.6rem; /* Slightly smaller text for the paragraph */
+    color: #333; /* Dark gray text for better readability */
+    line-height: 1.8; /* Increase line spacing */
+    margin-bottom: 2rem; /* Space below the paragraph */
+  }
+
+  .home-mid img {
+    width: 100%; /* Full-width for responsiveness */
+    max-width: 800px; /* Limit the maximum width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    margin-top: 2rem; /* Space above the image */
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    #home {
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center;
+      padding: 1rem; /* Reduce padding for smaller screens */
+    }
+
+    .home-img {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .home-img img {
+      width: 80%; /* Adjust image width for smaller screens */
+    }
+
+    .home-content {
+      text-align: center;
+      padding-right: 0;
+    }
+
+    .home-content h3 {
+      font-size: 2.5rem; /* Smaller font size for smaller screens */
+    }
+
+    .home-content h1 {
+      font-size: 3rem; /* Adjust heading font size for smaller screens */
+    }
+
+    .home-btn {
+      font-size: 1.4rem;
+      padding: 1rem 2.4rem;
+    }
+
+    .home-mid h1 {
+      font-size: 2.5rem; /* Smaller font size for smaller screens */
+    }
+
+    .home-mid p {
+      font-size: 1.4rem; /* Adjust paragraph size for smaller screens */
+    }
+  }
+
+  .center-text {
+    text-align: center;
+  }
+</style>
+
+
+<section id="home">
+  <div class="home-content">
+    <h3>Transform Your</h3>
+    <h1>Fitness Journey</h1>
+    <h3><span class="multiple-text">Achieve Your Goals</span></h3>
+    <p>Join our gym today and experience world-class facilities, expert trainers, and personalized workout plans. Start your journey toward a healthier, stronger you!</p>
+    <a href="/membership/" class="home-btn">Get Started</a>
+  </div>
+  <div class="home-img">
+    <img src="https://clever-academy.neocities.org/img/gym-image/heroImage.png" alt="Gym Image">
+  </div>
+</section>
+
+
+
+<section class="home-mid">
+  <h1>OUR HEALTH CLUBS</h1>
+  <p>Push your fitness further with our mix of facilities, and we'll support you with advice on new and better ways to train.</p>
+  <img src="https://images.pexels.com/photos/917660/pexels-photo-917660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 " alt="">
+</section>
+
+
+<h4 style="text-align: justify; padding:2% 10%; margin: 0 auto; text-align-last: center;color: #333">
+  Join Fitness First today and take the first step toward a healthier, stronger you! With world-class facilities, expert trainers, and personalized workout plans, we are here to help you achieve your fitness goals. Whether you're a beginner or a pro, Fitness First is your ultimate destination for wellness and transformation.
+</h4>
+
+
+
+<div class="card-container">
+  <div class="card">
+    <img src="https://clever-academy.neocities.org/img/gym-image/image4.jpg" alt="Class Timetable">
+    <div class="card-content">
+      <h3>CLASS TIMETABLE</h3>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://clever-academy.neocities.org/img/gym-image/image1.jpg" alt="Try Us">
+    <div class="card-content">
+      <h3>TRY US</h3>
+    </div>
+  </div>
+</div>
+
+
+<h3 class="center-text  "><span style="color: #ba0000;">Fitness First India </span> On Instagram</h3>
+<p class="center-text">Follow us on Instagram for tips, inspiration and the latest happenings in our clubs.</p>
+
+{% endblock %}

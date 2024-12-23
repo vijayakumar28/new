@@ -1,0 +1,111 @@
+<style>
+    /* General Styling */
+    .container {
+        width: 100%;
+        padding: 20px;
+        font-size: 16px;
+        color: white;
+       
+    }
+
+    /* Header Styling */
+    h1 {
+        margin-top: 65px;
+        font-size: 24px;
+        text-align: center;
+        color: #333;
+    }
+
+    /* Row Styling */
+    .membership-row {
+        display: flex;
+        margin: 15px 0;
+        justify-content: space-between;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+
+    .membership-row div {
+        width: 48%;
+        padding: 5px;
+        text-align: center; /* Keep text centered by default */
+    }
+
+    /* Styling for Data */
+    .membership-row div:nth-child(odd) {
+        background-color: #ba0000;
+        color: #ffffff;
+    }
+
+    .membership-row div:nth-child(even) {
+        background-color: #f1f1f1;
+        color: #333;
+    }
+
+    /* Make it responsive */
+    @media screen and (max-width: 768px) {
+        .membership-row {
+            flex-direction: column;
+        }
+
+        /* Ensure the text is centered on smaller screens */
+        .membership-row div {
+            width: 100%;
+            text-align: center; /* Make sure text is centered in mobile view */
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="margin-top: 60px;color: white;">Membership Details</h1>
+
+<div class="container">
+    <div class="membership-row">
+        <div><strong>Name</strong></div>
+        <div>{{ latest_membership.name }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>Age</strong></div>
+        <div>{{ latest_membership.age }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>Package</strong></div>
+        <div>{{ latest_membership.package }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>Months</strong></div>
+        <div>{{ latest_membership.months }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>Strength Training</strong></div>
+        <div>{{ latest_membership.Strength_Training }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>Cardio</strong></div>
+        <div>{{ latest_membership.Cardio }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>Yoga</strong></div>
+        <div>{{ latest_membership.Yoga }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>Zumba</strong></div>
+        <div>{{ latest_membership.Zumba }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>HIIT</strong></div>
+        <div>{{ latest_membership.HIIT }}</div>
+    </div>
+    <div class="membership-row">
+        <div><strong>Functional Training</strong></div>
+        <div>{{ latest_membership.Functional_Training }}</div>
+    </div>
+</div>
+
+<h1 style="color: #ffffff;">Thankyou for the membership</h1>
+
+{% endblock %}

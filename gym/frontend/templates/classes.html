@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+/* General Styles for Class Section */
+.class-text {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1549995546-87cb41aa98a4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.class-text h1 {
+    color: #ba0000;
+    padding-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.class-text h4 {
+    color: #ffffff;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.class-head {
+    text-align: center;
+    color: #ba0000;
+    margin: 2rem 0;
+    font-size: 2rem;
+}
+
+/* Styles for Class Cards */
+.class-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Two columns for smaller screens */
+    gap: 20px;
+    padding: 0 10%;
+    margin-bottom: 2rem;
+}
+
+.container-sec {
+    background-color: #ba0000;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1 / 1; /* Ensures square containers */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, border-radius 0.3s ease;
+    position: relative;
+}
+
+/* Hover Effect */
+.container-sec:hover {
+    transform: scale(1.1);
+    border-radius: 50%; /* Changes shape to circle */
+}
+
+/* Content Inside Cards */
+.container-sec h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ba0000;
+}
+
+.container-sec p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Background Images for Classes */
+.sec1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://plus.unsplash.com/premium_photo-1664298367434-0408974ab0bb?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+.sec2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1470468969717-61d5d54fd036?q=80&w=1044&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+background-position: top;}
+
+.sec3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1220&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');}
+
+.sec4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');}
+
+.sec5 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('https://plus.unsplash.com/premium_photo-1664910207555-fac63513e7ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');}
+
+.sec6 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('https://images.unsplash.com/photo-1639653818737-7e884dc84954?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .class-container {
+        grid-template-columns: 1fr; /* One column for mobile */
+        gap: 15px;
+        padding: 0 5%;
+    }
+}
+</style>
+
+<section class="classes">
+    <!-- Intro Text Section -->
+    <div class="class-text">
+        <h1>Classes</h1>
+        <h4>Our gym offers a wide range of classes designed for every fitness level. Whether it's strength training, yoga, or high-energy Zumba sessions, we have the perfect class to help you reach your goals. Join us today and elevate your fitness journey!</h4>
+    </div>
+
+    <!-- Class Grid Section -->
+    <h1 class="class-head">Transform Your Fitness Journey</h1>
+    <div class="class-container">
+        <div class="container-sec sec1">
+            <h2>Strength Training</h2>
+            <p>Build muscle and enhance your power with targeted exercises.</p>
+        </div>
+        <div class="container-sec sec2">
+            <h2>Cardio Blast</h2>
+            <p>Boost endurance and burn calories with high-energy workouts.</p>
+        </div>
+        <div class="container-sec sec3">
+            <h2>Yoga & Flexibility</h2>
+            <p>Improve flexibility and find inner peace with mindfulness.</p>
+        </div>
+        <div class="container-sec sec4">
+            <h2>Zumba</h2>
+            <p>Dance your way to fitness in our fun-filled Zumba sessions.</p>
+        </div>
+        <div class="container-sec sec5">
+            <h2>HIIT</h2>
+            <p>Maximize results with short, intense high-intensity workouts.</p>
+        </div>
+        <div class="container-sec sec6">
+            <h2>Functional Training</h2>
+            <p>Enhance strength and mobility for everyday activities.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

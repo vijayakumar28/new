@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  /* About Section Styling */
+  .about-section {
+  background-color: black;
+  color: white;
+  padding: 4rem 2rem;
+  min-height: calc(100vh - 100px); /* Adjust dynamically to avoid overlap */
+  box-sizing: border-box; /* Ensures padding doesn't exceed height */
+}
+.about-main{
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+              url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  /* background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  margin-bottom: 2rem;
+}
+
+
+  .about-section h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #ba0000;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+  }
+
+  .about-section p {
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+  }
+
+  .about-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+
+  .about-content div {
+    flex: 1;
+    min-width: 300px; /* Ensure a minimum width for content boxes */
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05); /* Subtle transparent background */
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .about-content div:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+
+  }
+
+
+  .about-content div h2 {
+    font-size: 2rem;
+    color: #ba0000;
+    margin-bottom: 1rem;
+    padding: 10% 0;
+  }
+
+  .about-content div p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+.about-content .about-content1{
+
+  
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://clever-academy.neocities.org/img/gym-image/image1.jpg');
+                background-size: cover;
+                background-position: center;
+
+
+  
+}
+.about-content .about-content2{
+
+  
+background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+              background-size: cover;
+              
+            }
+
+
+.about-content .about-content3{
+
+  
+background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+              background-size: cover;
+              background-position: center;
+              }
+
+
+  
+
+
+.whyus p{
+  text-align: justify;
+  padding: 3rem;
+
+  
+}
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .about-content {
+      flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .about-content div {
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>
+
+<section class="about-section">
+  <div class="about-main">
+  <h1>About Us</h1>
+  <p>Welcome to Fitness First, your ultimate fitness destination with state-of-the-art facilities, high-tech equipment, and years of expertise. Our expert trainers, innovative programs, and supportive community are dedicated to helping you achieve your fitness goals. Join us to experience the perfect blend of technology, guidance, and motivation for a healthier, stronger, and happier you!</p></div>
+
+  <h1>Why Us</h1>
+  <div class="about-content">
+   
+    <div class="about-content1">
+      <h2>Our Mission</h2>
+      <p>Empowering individuals to lead healthier, happier lives through fitness and wellness.</p>
+    </div>
+    <div class="about-content2">
+      <h2>Our Vision</h2>
+      <p>To be the most trusted and innovative fitness center, inspiring people to be the best version of themselves.</p>
+    </div>
+    <div class="about-content3">
+      <h2>Our Team</h2>
+      <p>Meet our highly qualified trainers and staff, dedicated to supporting you at every step of your fitness journey.</p>
+    </div>
+  </div>
+
+
+  <div class="whyus">
+    
+    <p>Why choose Fitness First? We stand out with our state-of-the-art facilities, cutting-edge equipment, and experienced trainers dedicated to your success. With personalized workout plans, a welcoming community, and a commitment to your wellness, we ensure a fitness journey tailored to your goals. Whether you're a beginner or a seasoned athlete, our innovative programs and supportive environment make Fitness First the ultimate choice for achieving a healthier, stronger, and happier you!</p>
+  </div>
+</section>
+{% endblock %}
